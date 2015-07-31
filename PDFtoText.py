@@ -43,30 +43,11 @@ def writePDFToTxt(pdfPath,destPath):
         print "Could not open PDF number "+pdfPath
 
 ##CHANGE DIRECTORY TO WHERE THE BITS ARE LOCATED##
-os.chdir("/Users/ShomMazumder/Dropbox/AriasMazumder/data/raw/BITs/")
+wd = "" ##insert working directory
+destDir = "" ##insert destination directory
+os.chdir(wd)
 
 for pdf in range(3030,3461):
     srcPath = str(pdf)+".pdf"
-    destination = "/Users/ShomMazumder/Dropbox/AriasMazumder/data/text/BIT_"+str(pdf)+".txt"
+    destination = destDir+"BIT_"+str(pdf)+".txt"
     writePDFToTxt(srcPath,destination)
-
-####OLD IMPLEMENTATION####
-##ITERATE OVER ALL BITS AND SAVE AS TEXT FILE IN /DATA/TEXT/ DIRECTORY##
-#for pdf in range(1, 2917):
-#    pdfPath = str(pdf)+".pdf"
-#    try:
-#        pdfToText = convert_pdf_to_txt(pdfPath)
-#        with open("/Users/ShomMazumder/Dropbox/AriasMazumder/data/text/BIT_"+str(pdf)+".txt", "w") as text_file:
-#            text_file.write(pdfToText)
-#    except Exception, e:
-#        print pdf
-    
-
-#for pdf in range(3455, 3461):
-#    pdfPath = str(pdf)+".pdf"
-#    try:
-#        pdfToText = convert_pdf_to_txt(pdfPath)
-#        with open("/Users/ShomMazumder/Dropbox/AriasMazumder/data/text/BIT_"+str(pdf)+".txt", "w") as text_file:
-#            text_file.write(pdfToText)
-#    except Exception, e:
-#      print pdf

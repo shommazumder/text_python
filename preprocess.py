@@ -59,7 +59,7 @@ def preprocess(text):
     return processed
 
 
-pwd = "/Users/ShomMazumder/Dropbox/AriasMazumder/data/text/" #insert present working directory
+pwd = "" #insert present working directory
 targetDir = "" #insert target directory where files will be saved
 
 ##CHANGE DIRECTORY TO WHERE THE RAW BIT TEXTS ARE LOCATED##
@@ -71,13 +71,13 @@ os.chdir(pwd)
 for raw_bit in range(1, 3461):
     bit_num = "BIT_"+str(raw_bit)+".txt"
     try:
-        with open("/Users/ShomMazumder/Dropbox/AriasMazumder/data/text/"+bit_num,"r") as raw:
+        with open(pwd+bit_num,"r") as raw:
             raw_bit_text = raw.read()
             raw_bit_unicode = unicode(raw_bit_text,errors='ignore')
             if (isEnglish(raw_bit_unicode)):
                 processed_bit = preprocess(raw_bit_text)
             ##write to new
-                with open("/Users/ShomMazumder/Dropbox/AriasMazumder/data/processed/"+bit_num, "w") as processed:
+                with open(targetDir+bit_num, "w") as processed:
                     processed.write(processed_bit)
     except Exception, e:
         print bit_num
